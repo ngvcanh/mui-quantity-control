@@ -1,0 +1,157 @@
+# @kensoni/mui-quantity-control
+
+## Installation
+
+Install packages dependency:
+
+```sh
+# Install via npm
+npm install @emotion/react @emotion/styled @mui/material
+
+# Install via yarn
+yarn add @emotion/react @emotion/styled @mui/material
+```
+
+Install component:
+
+```sh
+# Install via npm
+npm i @kensoni/mui-quantity-control
+
+# Install via yarn
+yarn add @kensoni/mui-quantity-control
+```
+
+## Using
+
+```tsx
+import { ChangeEvent, MouseEvent, useState } from 'react';
+import QuantityControl from '@kensoni/mui-quantity-control';
+
+export default function App(){
+
+  const [ value, setValue ] = useState(1);
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>, newValue: number) => {
+    setValue(newValue);
+  }
+
+  const onClickMinus = (e: MouseEvent<HTMLButtonElement>, newValue: number) => {
+    console.log('Clicked minus', newValue)
+  }
+
+  const onClickPlus = (e: MouseEvent<HTMLButtonElement>, newValue: number) => {
+    console.log('Clicked plus', newValue)
+  }
+
+  return (
+    <div className="App">
+      <QuantityControl 
+        value={ 1 } 
+        onChange={ onChange }
+        onClickMinus={ onClickMinus }
+        onClickPlus={ onClickPlus }
+      />
+    </div>
+  )
+}
+```
+
+If `onClickMinus` and `onClickPlus` functions don't call `e.preventDefault()`, there's no need to update the `value` again. Inside `QuantityComponent` component will call the `onChange` function.
+
+## Props APIs.
+
+_**1. value**_
+
+- **Type**: `number`
+- **Required**: false
+- **Default**:
+- **Description**: Current value for `QuantityControl`.
+
+_**2. onChange**_
+
+- **Type**: `(e: ChangeEvent<HTMLInputElement>, newValue: number) => void`
+- **Required**: false
+- **Default**:
+- **Description**: Handle event when value of `QuantityControl` change. If If `onClickMinus` and `onClickPlus` functions don't call `e.preventDefault()`, this function will be called.
+
+_**3. onClickMinus**_
+
+- **Type**: `(e: MouseEvent<HTMLButtonElement>, newValue: number) => void`
+- **Required**: false
+- **Default**:
+- **Description**: Handle event when minus button clicked. If this function don't call `e.preventDefault()`, inside `QuantityComponent` component will call the `onChange` function.
+
+_**4. onClickMinus**_
+
+- **Type**: `(e: MouseEvent<HTMLButtonElement>, newValue: number) => void`
+- **Required**: false
+- **Default**:
+- **Description**: Handle event when plus button clicked. If this function don't call `e.preventDefault()`, inside `QuantityComponent` component will call the `onChange` function.
+
+_**5. className**_
+
+- **Type**: `string`
+- **Required**: false
+- **Default**:
+- **Description**: HTML class attribute value on `div` element wrapper of  `input`.
+
+_**6. sx**_
+
+- **Type**: `SxProps<Theme>`
+- **Required**: false
+- **Default**:
+- **Description**: Custom styles for `div` element wrapper of  `input`. [See more](https://mui.com/system/getting-started/the-sx-prop/)
+
+_**7. minusIcon**_
+
+- **Type**: `ReactNode`
+- **Required**: false
+- **Default**: `"-"`
+- **Description**: Custom component for minus icon.
+
+_**8. plusIcon**_
+
+- **Type**: `ReactNode`
+- **Required**: false
+- **Default**: `"+"`
+- **Description**: Custom component for plus icon.
+
+_**9. InputProps**_
+
+- **Type**: `Omit<InputProps, keyof InputNumberProps>`
+- **Required**: false
+- **Default**:
+- **Description**: All props for [Mui Input](https://mui.com/material-ui/react-text-field/#inputs) without prop's [InputNumber](https://www.npmjs.com/package/@kensoni/react-input-number#user-content-api).
+
+_**10. ButtonProps**_
+
+- **Type**: `{ minus?: ButtonProps; plus?: ButtonProps }`
+- **Required**: false
+- **Default**: 
+- **Description**: [ButtonProps](https://mui.com/material-ui/api/button/) for minus and plus buttons.
+
+_**11. format**_
+
+- **Type**: `boolean`
+- **Required**: false
+- **Default**: `false`
+- **Description**: Format value when render value into input.
+
+_**12. comma**_
+
+- **Type**: `boolean`
+- **Required**: false
+- **Default**: `false`
+- **Description**: Format value with separator between integer and decimal is comma `(,)`.
+
+_**13. formatOnlyBlur**_
+
+- **Type**: `boolean`
+- **Required**: false
+- **Default**: `false`
+- **Description**: Only format input number when focus out input.
+
+_**HTML Props**_
+
+All props of `DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>`

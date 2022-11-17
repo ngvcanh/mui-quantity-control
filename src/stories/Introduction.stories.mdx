@@ -159,3 +159,25 @@ _**13. formatOnlyBlur**_
 _**HTML Props**_
 
 All props of `DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>`
+
+## With NextJS
+
+Temporarily, SSR is not supported yet, so it can be used with NextJS as follows.
+
+```tsx
+import dynamic from 'next/dynamic';
+
+const QuantityControl = dynamic(
+  () => import('@kensoni/mui-quantity-control'),
+  { ssr: false }
+);
+
+export default function App(){
+
+  return (
+    <div className="App">
+      <QuantityControl />
+    </div>
+  )
+}
+```

@@ -1,6 +1,6 @@
 {
   "name": "@kensoni/mui-quantity-control",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Quantity control with MUI",
   "author": "Ken Nguyen <ngvcanh2014@gmail.com> (https://github.com/ngvcanh)",

@@ -17,7 +17,7 @@ import clsx from 'clsx';
 
 export interface QuantityControlRef extends HTMLInputElement{}
 
-export interface QuantityControlProps extends Omit<InputNumberProps, 'onChange'>{
+export interface QuantityControlProps extends Partial<Omit<InputNumberProps, 'onChange'>>{
   value?: number;
   onClickMinus?(e: MouseEvent<HTMLButtonElement>, value: number): void;
   onClickPlus?(e: MouseEvent<HTMLButtonElement>, value: number): void;

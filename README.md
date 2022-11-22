@@ -1,5 +1,11 @@
 # @kensoni/mui-quantity-control
 
+## Changelog
+
+### 1.0.1
+
+- Fix required props
+
 ## Installation
 
 Install packages dependency:
